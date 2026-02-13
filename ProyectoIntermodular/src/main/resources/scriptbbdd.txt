@@ -1,0 +1,14 @@
+El siguiente script es el utilizado para comenzar a crear y gestionar usuarios varios de 
+CREATE TABLE user (
+    id VARCHAR(50) PRIMARY KEY,
+    dob DATE,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    first_name VARCHAR(100),
+    gender VARCHAR(20),
+    last_name VARCHAR(100),
+    password VARCHAR(255) NOT NULL,
+    role VARCHAR(50)
+);
+
+INSERT INTO user (id, dob, email, first_name, gender, last_name, password, role)
+VALUES ('1', '2000-01-01', 'admin', 'Admin', '-', NULL, 'admin', 'Admin');
