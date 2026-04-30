@@ -5,31 +5,99 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/8.0.72" xmlns:fx="http://javafx.com/fxml/1" 
-fx:controller="com.damianqm.proyectoIntermodular.controller.LoginController">
-   <children>
-      <Rectangle fill="DODGERBLUE" height="250.0" stroke="#ffffff8b" strokeType="INSIDE" width="400.0" />
-      <Label fx:id="lblLogin" layoutX="97.0" layoutY="46.0" text="Login" textFill="WHITE">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <TextField fx:id="username" layoutX="98.0" layoutY="92.0" prefHeight="36.0" prefWidth="204.0" promptText="Username" />
-      <PasswordField fx:id="password" layoutX="98.0" layoutY="141.0" onAction="#login" prefHeight="36.0" prefWidth="204.0" promptText="Password" />
-      <Button fx:id="btnLogin" layoutX="215.0" layoutY="193.0" mnemonicParsing="false" onAction="#login" prefHeight="30.0" prefWidth="86.0" styleClass="btnGreen" text="Sign In" textFill="WHITE">
-         <font>
-            <Font size="15.0" />
-         </font>
-         <effect>
-            <DropShadow blurType="ONE_PASS_BOX" />
-         </effect></Button>
-   </children>
-   <opaqueInsets>
-      <Insets />
-   </opaqueInsets>
-</AnchorPane>
+<!--
+    Pantalla de inicio de sesión.
+    Tamaño fijo: 900 × 600 px (igual que el resto de pantallas).
+    El formulario se centra dentro de un StackPane con fondo degradado.
+-->
+<StackPane
+    prefHeight="600.0"
+    prefWidth="900.0"
+    styleClass="loginBackground"
+    stylesheets="@../styles/Styles.css"
+    xmlns="http://javafx.com/javafx/21"
+    xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="com.damianqm.proyectoIntermodular.controller.LoginController">
+
+    <!-- Tarjeta de login centrada -->
+    <VBox
+        alignment="CENTER"
+        maxWidth="380.0"
+        spacing="14.0"
+        styleClass="loginCard"
+        StackPane.alignment="CENTER">
+
+        <padding>
+            <Insets bottom="40.0" left="40.0" right="40.0" top="35.0" />
+        </padding>
+
+        <!-- Fila título + botón ayuda -->
+        <HBox alignment="CENTER_LEFT" prefWidth="300.0" spacing="5.0">
+            <Label text="Inicio de Sesión" textFill="WHITE" HBox.hgrow="ALWAYS">
+                <font><Font size="22.0" /></font>
+            </Label>
+            <Region HBox.hgrow="ALWAYS" />
+            <Button
+                fx:id="btnHelp"
+                mnemonicParsing="false"
+                onAction="#showHelp"
+                styleClass="btnHelp"
+                text="?"
+                accessibleText="Abrir ayuda">
+                <tooltip><Tooltip text="Ayuda (F1)" /></tooltip>
+            </Button>
+        </HBox>
+
+        <!-- Mensaje de error / estado -->
+        <Label
+            fx:id="lblLogin"
+            text=""
+            textFill="#ffcccc"
+            wrapText="true"
+            prefWidth="300.0">
+            <font><Font size="12.0" /></font>
+        </Label>
+
+        <!-- Campo usuario -->
+        <TextField
+            fx:id="username"
+            prefHeight="38.0"
+            prefWidth="300.0"
+            promptText="Correo electrónico"
+            accessibleText="Campo de usuario" />
+
+        <!-- Campo contraseña -->
+        <PasswordField
+            fx:id="password"
+            prefHeight="38.0"
+            prefWidth="300.0"
+            promptText="Contraseña"
+            onAction="#login"
+            accessibleText="Campo de contraseña" />
+
+        <!-- Botón entrar -->
+        <Button
+            fx:id="btnLogin"
+            mnemonicParsing="false"
+            onAction="#login"
+            prefHeight="38.0"
+            prefWidth="300.0"
+            styleClass="btnGreen"
+            text="Entrar"
+            textFill="WHITE"
+            accessibleText="Iniciar sesión">
+            <font><Font size="15.0" /></font>
+            <effect><DropShadow blurType="ONE_PASS_BOX" /></effect>
+        </Button>
+
+    </VBox>
+
+</StackPane>

@@ -10,102 +10,211 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 /**
- * @author Ram Alapure
- * @since 05-04-2017
+ * Entidad JPA que representa a un usuario de la aplicación.
+ * <p>
+ * Se mapea a la tabla {@code user} de la base de datos. El campo
+ * {@code email} actúa como identificador único de acceso (se usa como
+ * nombre de usuario en el login).
+ * </p>
+ *
+ * <p>Roles disponibles: {@code Admin}, {@code User}.</p>
+ * <p>Géneros disponibles: {@code Male}, {@code Female}.</p>
+ *
+ * @author Damián Quilez Mesa
+ * @version 1.0
+ * @since 2024
  */
-
 @Entity
-@Table(name = "User")
+@Table(name = "user")
 public class User {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id", updatable = false, nullable = false)
-	private long id;
+    /**
+     * Identificador único generado automáticamente por la base de datos.
+     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", updatable = false, nullable = false)
+    private long id;
 
-	private String firstName;
+    /** Nombre del usuario. */
+    private String firstName;
 
-	private String lastName;
+    /** Apellido del usuario. */
+    private String lastName;
 
-	private LocalDate dob;
+    /** Fecha de nacimiento del usuario. */
+    private LocalDate dob;
 
-	private String gender;
+    /** Género del usuario ({@code Male} o {@code Female}). */
+    private String gender;
 
-	private String role;
+    /** Rol del usuario en la aplicación ({@code Admin} o {@code User}). */
+    private String role;
 
-	@Column(unique=true)
-	private String email;
+    /**
+     * Correo electrónico del usuario. Actúa como identificador único de acceso.
+     */
+    @Column(unique = true)
+    private String email;
 
-	private String password;
+    /** Contraseña del usuario. */
+    private String password;
 
-	public long getId() {
-		return id;
-	}
+    /**
+     * Devuelve el identificador único del usuario.
+     *
+     * @return el id del usuario
+     */
+    public long getId() {
+        return id;
+    }
 
-	public void setId(long id) {
-		this.id = id;
-	}
+    /**
+     * Establece el identificador del usuario.
+     *
+     * @param id el nuevo id
+     */
+    public void setId(long id) {
+        this.id = id;
+    }
 
-	public String getFirstName() {
-		return firstName;
-	}
+    /**
+     * Devuelve el nombre del usuario.
+     *
+     * @return el nombre
+     */
+    public String getFirstName() {
+        return firstName;
+    }
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
+    /**
+     * Establece el nombre del usuario.
+     *
+     * @param firstName el nuevo nombre
+     */
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-	public String getLastName() {
-		return lastName;
-	}
+    /**
+     * Devuelve el apellido del usuario.
+     *
+     * @return el apellido
+     */
+    public String getLastName() {
+        return lastName;
+    }
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+    /**
+     * Establece el apellido del usuario.
+     *
+     * @param lastName el nuevo apellido
+     */
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
-	public LocalDate getDob() {
-		return dob;
-	}
+    /**
+     * Devuelve la fecha de nacimiento del usuario.
+     *
+     * @return la fecha de nacimiento
+     */
+    public LocalDate getDob() {
+        return dob;
+    }
 
-	public void setDob(LocalDate dob) {
-		this.dob = dob;
-	}
+    /**
+     * Establece la fecha de nacimiento del usuario.
+     *
+     * @param dob la nueva fecha de nacimiento
+     */
+    public void setDob(LocalDate dob) {
+        this.dob = dob;
+    }
 
-	public String getGender() {
-		return gender;
-	}
+    /**
+     * Devuelve el género del usuario.
+     *
+     * @return {@code "Male"} o {@code "Female"}
+     */
+    public String getGender() {
+        return gender;
+    }
 
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
+    /**
+     * Establece el género del usuario.
+     *
+     * @param gender {@code "Male"} o {@code "Female"}
+     */
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
 
-	public String getRole() {
-		return role;
-	}
+    /**
+     * Devuelve el rol del usuario.
+     *
+     * @return {@code "Admin"} o {@code "User"}
+     */
+    public String getRole() {
+        return role;
+    }
 
-	public void setRole(String role) {
-		this.role = role;
-	}
+    /**
+     * Establece el rol del usuario.
+     *
+     * @param role {@code "Admin"} o {@code "User"}
+     */
+    public void setRole(String role) {
+        this.role = role;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    /**
+     * Devuelve el correo electrónico del usuario.
+     *
+     * @return el email
+     */
+    public String getEmail() {
+        return email;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    /**
+     * Establece el correo electrónico del usuario.
+     *
+     * @param email el nuevo email (debe ser único en la base de datos)
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public String getPassword() {
-		return password;
-	}
+    /**
+     * Devuelve la contraseña del usuario.
+     *
+     * @return la contraseña
+     */
+    public String getPassword() {
+        return password;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    /**
+     * Establece la contraseña del usuario.
+     *
+     * @param password la nueva contraseña
+     */
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", dob=" + dob + ", email="
-				+ email + "]";
-	}
-
+    /**
+     * Representación textual del usuario para logging y depuración.
+     *
+     * @return cadena con id, nombre, apellido, fecha de nacimiento y email
+     */
+    @Override
+    public String toString() {
+        return "User [id=" + id
+                + ", firstName=" + firstName
+                + ", lastName=" + lastName
+                + ", dob=" + dob
+                + ", email=" + email + "]";
+    }
 }

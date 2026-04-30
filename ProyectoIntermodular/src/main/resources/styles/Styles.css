@@ -1,10 +1,142 @@
-/* CSS for app */
+/* ════════════════════════════════════════════════════════════
+   Estilos globales de la aplicación
+   Proyecto Intermodular – Damián Quilez Mesa
+   ════════════════════════════════════════════════════════════ */
 
-.btnGreen{
-	-fx-background-color:  #3cbc53;
+/* ── Colores de marca ─────────────────────────────────────── */
+/* Principal: DODGERBLUE (#1E90FF) | Acción positiva: #3cbc53  */
+
+/* ── Botón verde (Save / Entrar) ─────────────────────────── */
+.btnGreen {
+    -fx-background-color: #3cbc53;
+    -fx-background-radius: 5;
+    -fx-cursor: hand;
 }
 
-.background{
-	-fx-background-color: DODGERBLUE;
+.btnGreen:hover {
+    -fx-background-color: #2ea845;
 }
 
+.btnGreen:pressed {
+    -fx-background-color: #27963d;
+}
+
+/* ── Panel izquierdo del dashboard (fondo azul) ───────────── */
+.background {
+    -fx-background-color: DODGERBLUE;
+}
+
+/* ── Fondo degradado de la pantalla de login ──────────────── */
+.loginBackground {
+    -fx-background-color: linear-gradient(to bottom right, #1e3c72, #2a5298);
+}
+
+/* ── Tarjeta del formulario de login ──────────────────────── */
+.loginCard {
+    -fx-background-color: rgba(255, 255, 255, 0.12);
+    -fx-background-radius: 14;
+    -fx-border-color: rgba(255, 255, 255, 0.25);
+    -fx-border-radius: 14;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.35), 24, 0, 0, 8);
+}
+
+/* ── Botón de ayuda (?) ───────────────────────────────────── */
+.btnHelp {
+    -fx-background-color: rgba(255, 255, 255, 0.25);
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-min-width: 28px;
+    -fx-min-height: 28px;
+    -fx-max-width: 28px;
+    -fx-max-height: 28px;
+    -fx-background-radius: 50%;
+    -fx-cursor: hand;
+    -fx-padding: 0;
+}
+
+.btnHelp:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.45);
+}
+
+.btnHelp:pressed {
+    -fx-background-color: rgba(255, 255, 255, 0.6);
+}
+
+/* ── Campos de texto en pantalla de login ─────────────────── */
+.loginCard .text-field,
+.loginCard .password-field {
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+    -fx-border-color: rgba(255, 255, 255, 0.4);
+    -fx-border-width: 1;
+    -fx-background-color: rgba(255, 255, 255, 0.85);
+    -fx-font-size: 13px;
+}
+
+.loginCard .text-field:focused,
+.loginCard .password-field:focused {
+    -fx-border-color: #3cbc53;
+    -fx-border-width: 2;
+    -fx-background-color: white;
+}
+
+/* ── Tabla de usuarios ────────────────────────────────────── */
+.table-view {
+    -fx-background-color: #f9fafc;
+    -fx-border-color: #d0d7e3;
+    -fx-border-width: 1;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #2a5298;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #eef2fa;
+}
+
+.table-row-cell:even {
+    -fx-background-color: white;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #c0d4f5;
+}
+
+/* ── ComboBox ─────────────────────────────────────────────── */
+.combo-box {
+    -fx-background-color: white;
+    -fx-background-radius: 4;
+}
+
+/* ── DatePicker ───────────────────────────────────────────── */
+.date-picker {
+    -fx-background-color: white;
+    -fx-background-radius: 4;
+}
+
+/* ── Barra de menú ────────────────────────────────────────── */
+.menu-bar {
+    -fx-background-color: #1e3c72;
+    -fx-padding: 2 4;
+}
+
+.menu-bar .menu .label,
+.menu-bar .menu-button .label {
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+}
+
+.menu-bar .menu:hover,
+.menu-bar .menu:showing {
+    -fx-background-color: #2a5298;
+    -fx-background-radius: 3;
+}
